@@ -1,4 +1,3 @@
-import com.sun.jdi.DoubleValue;
 
 import java.util.*;
 
@@ -37,31 +36,35 @@ public class Java1 {
         double f = 0.3*(Math.pow((x-1.0),2.0))+4.0;
         return f;
     }
-    private static void Third(double x){
+    private static void Third(){
         int y1 = 1;
         int y2 = 3;
         double eps = 0.1;
-        x = y1 + eps;
+        double x = y1 + eps;
         double sq = 0.0;
         while (x <= y2){
             sq += function_for_third(x)*eps;
             x = x + eps;
         }
         System.out.println(sq);
-        }
-        System.out.print(sq);
     }
     /**
      * Четвертое задание под вариантом 104 (номер по писку 4, номер группы 191):
      * В области К районов. Известны количество жителей (в тыс. человек) и плостность населения (тыс. чел/км2) каждого района.
      * Определить самый густонаселённый район области.
      */
-    private static void Fourth(int k, int [] people, int [] plotnost){
-        double [] res = new double[k];
+    private static void Fourth(int k, int [] people, int [] plotnost) {
+        int[] res = new int[k];
         OptionalInt max = Arrays.stream(plotnost).max();
-        for (int i = 0; i < k; i++){
-            if (plotnost[i] == max.getAsInt())
-                System.out.println("District number " + i + " with population " + people[i] + " thousand people" + " and with population density " + plotnost[i] + " thousand people/km2");
+        for (int i = 0; i < k; i++) {
+            if (plotnost[i] == max.getAsInt()) {
+                res[i] = people[i];
+            }
+        }
+        OptionalInt max2 = Arrays.stream(res).max();
+        for (int i = 0; i < k; i++) {
+            if (plotnost[i] == max.getAsInt() && res[i] == max2.getAsInt())
+                System.out.println("District number " + (i+1) + " with population " + people[i] + " thousand people" + " and with population density " + plotnost[i] + " thousand people/km2");
         }
     }
     /**
@@ -71,7 +74,7 @@ public class Java1 {
     private static void Fifth() {
         var fff = false;
         int n3, d;
-        for (int i = 1000; i < 10000; i++) {
+        for (int i = 10000; i > 1000; --i) {
             n3 = i;
             int j = 0;
             int s = 0;
@@ -93,7 +96,7 @@ public class Java1 {
 
     public static void main (String[] args){
         System.out.println("TASK 29");
-        double a = (double) (Math.random());
+        double a = Math.random();
         int n = 1 + (int) (Math.random()*10);
         System.out.println("A Real Number A = " + a);
         System.out.println("A Natural Number N = " + n);
@@ -107,11 +110,10 @@ public class Java1 {
         Second(n2);
 
         System.out.println("\n\nTASK 79");
-        double x = 0;
-        //double x = (Math.random());
+        //double x = Math.random();
         //System.out.println("The X = " + x);
         System.out.println("The Figure Square is: ");
-        Third(x);
+        Third();
 
         System.out.println("\n\nTASK 104");
         int k = (int) (Math.random()*20);
