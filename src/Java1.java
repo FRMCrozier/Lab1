@@ -40,14 +40,14 @@ public class Java1 {
     private static void Third(double x){
         int y1 = 1;
         int y2 = 3;
-        double l = 0.001;
-        double sq = 0;
-        double h,m;
+        double eps = 0.1;
+        x = y1 + eps;
+        double sq = 0.0;
         while (x <= y2){
-            m = (function_for_third(x) + function_for_third(x - l)) / 2.0;
-            h = l;
-            sq = sq + m * h;
-            x = x+1;
+            sq += function_for_third(x)*eps;
+            x = x + eps;
+        }
+        System.out.println(sq);
         }
         System.out.print(sq);
     }
@@ -77,7 +77,7 @@ public class Java1 {
             int s = 0;
             while (j < 4) {
                 d = n3 % 10;
-                s += Math.pow(d, 5);
+                s += d*d*d*d*d;
                 j += 1;
                 n3 /= 10;
             }
@@ -119,7 +119,7 @@ public class Java1 {
         int [] plotnost = new int[k];
         for (int i = 0; i < k; i++){
             people[i] = 100 + (int) (Math.random()*30);
-            plotnost[i] = 10 + (int)(Math.random()*30);
+            plotnost[i] = 10 + (int)(Math.random()*10);
         }
         System.out.println("Number K of districts: " + k);
         System.out.println("The Population of each district (thousands people):");
