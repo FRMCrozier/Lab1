@@ -14,7 +14,7 @@ public class Java1 {
         for (int i = 0; i<= n-1; i++){
             p = p*(a+i);
         }
-        System.out.print(p);
+        System.out.println(p);
     }
     /**
      * Второе задание под вариантом 54 (номер по писку 4, номер группы 191):
@@ -25,7 +25,7 @@ public class Java1 {
         for (int i = 1; i<=n; i++){
             r += 1.0/i;
         }
-        System.out.print(r);
+        System.out.println(r);
     }
     /**
      * Третье задание под вариантом 79 (номер по писку 4, номер группы 191):
@@ -107,10 +107,10 @@ public class Java1 {
         Second(n2);
 
         System.out.println("\n\nTASK 79");
-        double x = (Math.random());
-        System.out.println("The X = " + x);
+        double x = 0;
+        //double x = (Math.random());
+        //System.out.println("The X = " + x);
         System.out.println("The Figure Square is: ");
-        //double x = 1.001;
         Third(x);
 
         System.out.println("\n\nTASK 104");
